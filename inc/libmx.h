@@ -2,11 +2,12 @@
 #define LIBMX_LIBMX_H
 
 
+#include <unistd.h>
 #include <wchar.h>
 
 
 /*  Utils pack  */
-//void mx_printchar(char c);
+void mx_printchar(char c);
 //void mx_print_unicode(wchar_t c);
 //void mx_printstr(const char *s);
 //bool mx_isspace(char c);
