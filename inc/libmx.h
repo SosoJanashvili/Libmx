@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <wchar.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 
 /*  Utils pack  */
@@ -29,17 +30,17 @@ void mx_foreach(int *arr, int size, void (*f)(int));
 
 /*  String pack  */
 int mx_strlen(const char *s);
-//void mx_swap_char(char *s1, char *s2);
-//void mx_str_reverse(char *s);
-//void mx_strdel(char **str);
+void mx_swap_char(char *s1, char *s2);
+void mx_str_reverse(char *s);
+void mx_strdel(char **str);
 //void mx_del_strarr(char ***arr);
-//int mx_get_char_index(const char *str, char c);
+int mx_get_char_index(const char *str, char c);
 //char *mx_strdup(const char *s1);
 //char *mx_strndup(const char *s1, size_t n);
-//char *mx_strcpy(char *dst, const char *src);
-//char *mx_strncpy(char *dst, const char *src, int len);
-//int mx_strcmp(const char *s1, const char *s2);
-//int mx_strncmp(const char *s1, const char *s2, int len);
+char *mx_strcpy(char *dst, const char *src);
+char *mx_strncpy(char *dst, const char *src, int len);
+int mx_strcmp(const char *s1, const char *s2);
+int mx_strncmp(const char *s1, const char *s2, int len);
 //char *mx_strcat(char *restrict s1, const char *restrict s2);
 //char *mx_strstr(const char *haystack, const char *needle);
 //int mx_get_substr_index(const char *str, const char *sub);
