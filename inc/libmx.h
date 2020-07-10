@@ -4,30 +4,31 @@
 
 #include <unistd.h>
 #include <wchar.h>
+#include <stdbool.h>
 
 
 /*  Utils pack  */
 void mx_printchar(char c);
 //void mx_print_unicode(wchar_t c);
-//void mx_printstr(const char *s);
-//bool mx_isspace(char c);
-//bool mx_isdigit(char c);
+void mx_printstr(const char *s);
+bool mx_isspace(char c);           // Not requested in challenge docs
+bool mx_isdigit(char c);           // Not requested in challenge docs
 //void mx_print_strarr(char **arr, const char *delim);
-//void mx_printint(int n);
-//void mx_printerr(const char *s);
-//double mx_pow(double n, unsigned int pow);
-//int mx_sqrt(int x);
+void mx_printint(int n);
+//void mx_printerr(const char *s); // Not requested in challenge docs
+double mx_pow(double n, unsigned int pow);
+int mx_sqrt(int x);
 //char *mx_nbr_to_hex(unsigned long nbr);
-//unsigned long mx_hex_to_nbr(const char *hex);
-//int mx_atoi(const char *str);
+unsigned long mx_hex_to_nbr(const char *hex);
+//int mx_atoi(const char *str);    // Not requested in challenge docs
 //char *mx_itoa(int number);
-//void mx_foreach(int *arr, int size, void (*f)(int));
+void mx_foreach(int *arr, int size, void (*f)(int));
 //int mx_binary_search(char **arr, int size, const char *s, int *count);
 //int mx_bubble_sort(char **arr, int size);
 //int mx_quicksort(char **arr, int left, int right);
 
 /*  String pack  */
-//int mx_strlen(const char *s);
+int mx_strlen(const char *s);
 //void mx_swap_char(char *s1, char *s2);
 //void mx_str_reverse(char *s);
 //void mx_strdel(char **str);
