@@ -50,18 +50,18 @@ int mx_count_words(const char *str, char c);
 char *mx_strnew(const int size);
 char *mx_strtrim(const char *str);
 //char *mx_del_extra_spaces(const char *str);
-//char **mx_strsplit(char const *s, char c);
-//char *mx_strjoin(char const *s1, char const *s2);
+char **mx_strsplit(char const *s, char c);                     // has to be completed
+char *mx_strjoin(char const *s1, char const *s2);               // has to be completed
 //char *mx_file_to_str(const char *file);
 //int mx_read_line(char **lineptr, int buf_size, char delim, const int fd);
 //char *mx_replace_substr(const char *str, const char *sub, const char *replace);
 
 /*  Memory pack  */
-//void *mx_memset(void *b, int c, size_t len);
-//void *mx_memcpy(void *restrict dst, const void *restrict src, size_t n);
-//void *mx_memccpy(void *restrict dst, const void *restrict src,
-//                 int c, size_t n);
-//int mx_memcmp(const void *s1, const void *s2, size_t n);
+void *mx_memset(void *b, int c, size_t len);
+void *mx_memcpy(void *restrict dst, const void *restrict src, size_t n);
+void *mx_memccpy(void *restrict dst, const void *restrict src,
+                int c, size_t n);
+int mx_memcmp(const void *s1, const void *s2, size_t n);
 //void *mx_memchr(const void *s, int c, size_t n);
 //void *mx_memrchr(const void *s, int c, size_t n);
 //void *mx_memmem(const void *big, size_t big_len, const void *little,
