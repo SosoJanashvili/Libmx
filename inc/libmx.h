@@ -66,8 +66,8 @@ void *mx_memchr(const void *s, int c, size_t n);
 void *mx_memrchr(const void *s, int c, size_t n);
 void *mx_memmem(const void *big, size_t big_len, const void *little,
                 size_t little_len);
-//void *mx_memmove(void *dst, const void *src, size_t len);
-//void *mx_realloc(void *ptr, size_t size);
+void *mx_memmove(void *dst, const void *src, size_t len);
+void *mx_realloc(void *ptr, size_t size);
 
 /*  List Pack  */
 //t_list *mx_create_node(void *data);
