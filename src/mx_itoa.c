@@ -25,7 +25,7 @@ char *mx_itoa(int number) {
     char *str = NULL;
 
     if (number == -2147483648) {
-        str = strdup("-2147483648");
+        str = mx_strdup("-2147483648");
         return str;
     }
 

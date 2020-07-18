@@ -48,6 +48,7 @@ add_executable(Libmx
         src/mx_del_strarr.c
         src/mx_strsplit.c
         src/mx_strjoin.c
+        src/mx_del_extra_spaces.c
 
         src/mx_memset.c
         src/mx_memcpy.c
