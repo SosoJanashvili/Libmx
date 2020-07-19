@@ -9,6 +9,12 @@
 //#include <malloc/malloc.h>
 
 
+typedef struct s_list {
+    void *data;
+    struct s_list *next;
+}           t_list;
+
+
 /*  Utils pack  */
 void mx_printchar(char c);
 //void mx_print_unicode(wchar_t c);
@@ -71,8 +77,8 @@ void *mx_memmove(void *dst, const void *src, size_t len);
 void *mx_realloc(void *ptr, size_t size);
 
 /*  List Pack  */
-//t_list *mx_create_node(void *data);
-//void mx_push_front(t_list **list, void *data);
+t_list *mx_create_node(void *data);
+void mx_push_front(t_list **list, void *data);
 //void mx_push_back(t_list **list, void *data);
 //void mx_pop_front(t_list **head);
 //void mx_pop_back(t_list **head);
