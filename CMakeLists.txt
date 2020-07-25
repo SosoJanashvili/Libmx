@@ -62,5 +62,6 @@ add_executable(Libmx
 
         src/mx_create_node.c
         src/mx_push_front.c
+        src/mx_push_back.c
 
         main.c)
