@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 //#include <malloc/malloc.h>
+#include <stdio.h>
 
 
 typedef struct s_list {
@@ -59,7 +60,7 @@ char *mx_strtrim(const char *str);
 char *mx_del_extra_spaces(const char *str);
 char **mx_strsplit(char const *s, char c);
 char *mx_strjoin(char const *s1, char const *s2);
-//char *mx_file_to_str(const char *file);
+char *mx_file_to_str(const char *file);
 //int mx_read_line(char **lineptr, int buf_size, char delim, const int fd);
 //char *mx_replace_substr(const char *str, const char *sub, const char *replace);
 
@@ -80,9 +81,9 @@ void *mx_realloc(void *ptr, size_t size);
 t_list *mx_create_node(void *data);
 void mx_push_front(t_list **list, void *data);
 void mx_push_back(t_list **list, void *data);
-//void mx_pop_front(t_list **head);
-//void mx_pop_back(t_list **head);
-//int mx_list_size(t_list *list);
+void mx_pop_front(t_list **head);
+void mx_pop_back(t_list **head);
+int mx_list_size(t_list *list);
 //t_list *mx_sort_list(t_list *lst, bool (*cmp)(void *, void *));
 
 

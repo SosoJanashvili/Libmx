@@ -49,6 +49,7 @@ add_executable(Libmx
         src/mx_strsplit.c
         src/mx_strjoin.c
         src/mx_del_extra_spaces.c
+        src/mx_file_to_str.c
 
         src/mx_memset.c
         src/mx_memcpy.c
@@ -63,5 +64,8 @@ add_executable(Libmx
         src/mx_create_node.c
         src/mx_push_front.c
         src/mx_push_back.c
+        src/mx_pop_front.c
+        src/mx_pop_back.c
+        src/mx_list_size.c
 
         main.c)
