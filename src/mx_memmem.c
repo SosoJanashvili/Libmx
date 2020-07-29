@@ -2,6 +2,9 @@
 
 void *mx_memmem(const void *big, size_t big_len, const void *little, size_t little_len) {
 
+    if (!big || !little)
+        return NULL;
+
     const unsigned char *haystack = big;
     const unsigned char *needle = little;
 
@@ -14,10 +17,7 @@ void *mx_memmem(const void *big, size_t big_len, const void *little, size_t litt
     return NULL;
 }
 
-
-
 /*  code for main.c  */
 //char str[30] = "this is a very long string";
 //char str2[] = "ing";
 //mx_printstr( mx_memmem(str, 30, str2, 3) );
-
