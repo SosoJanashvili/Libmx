@@ -2,7 +2,7 @@
 
 static char *mx_optimize_string(char *str) {
 
-    for (size_t i = 0; i < mx_strlen(str); i++) {
+    for (int i = 0; i < mx_strlen(str); i++) {
         if (mx_isspace(str[i])) {
             str[i] = ' ';
         }
@@ -14,7 +14,7 @@ static char *mx_optimize_string(char *str) {
 char *mx_del_extra_spaces(const char *str) {
 
     char *tempstr = mx_strdup(str);
-    char **arr = mx_strsplit(mx_optimize_string( tempstr), ' ');
+    char **arr = mx_strsplit(mx_optimize_string(tempstr), ' ');
     char *clean_str = NULL;
 
     if (!str) return NULL;

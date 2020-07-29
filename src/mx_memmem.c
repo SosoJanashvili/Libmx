@@ -6,8 +6,8 @@ void *mx_memmem(const void *big, size_t big_len, const void *little, size_t litt
     const unsigned char *needle = little;
 
     for (size_t i = 0; i < big_len - little_len; i++) {
-        if ( mx_memcmp(haystack + i, needle, little_len) == 0 ) {
-            return (void *) haystack + i;
+        if (mx_memcmp(haystack + i, needle, little_len) == 0) {
+            return (void *)&haystack[i];
         }
     }
 

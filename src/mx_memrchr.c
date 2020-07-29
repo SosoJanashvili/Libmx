@@ -8,7 +8,7 @@ void *mx_memrchr(const void *s, int c, size_t n) {
 
     for (; i >= 0; i--) {
         if (p[i] == ch) {
-            return (void *) p + i;
+            return (void *)&p[i];
         }
     }
 

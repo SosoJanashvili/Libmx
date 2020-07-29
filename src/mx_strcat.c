@@ -2,11 +2,17 @@
 
 char *mx_strcat(char *restrict s1, const char *restrict s2) {
 
-    int st_index = mx_strlen(s1);
+    if (!s1 || !s2)
+        return NULL;
 
-    for (int i = 0; s2[i] != '\0'; i++) {
-        s1[st_index + i] = s2[i];
+    int len1 = mx_strlen(s1);
+    int i = 0;
+
+    for (; s2[i] != '\0'; i++) {
+        s1[len1 + i] = s2[i];
     }
+
+    s1[len1 + i] = '\0';
 
     return s1;
 }

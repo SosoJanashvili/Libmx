@@ -2,13 +2,13 @@
 
 void mx_print_strarr(char **arr, const char *delim) {
 
-    if( !(*arr) || !delim)
+    if(!(*arr) || !delim)
         return;
 
     int i = 0;
     char ch = *delim;
 
-    for ( ; arr[i]; i++ ) {
+    for (; arr[i]; i++) {
         mx_printstr(arr[i]);
         mx_printchar(ch);
     }

@@ -8,5 +8,5 @@ char *mx_strchr(const char *s, int c) {
         i++;
     }
 
-    return (char *) &s[i];
+    return (char *)&s[i];
 }

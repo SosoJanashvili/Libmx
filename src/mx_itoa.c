@@ -5,7 +5,8 @@ static void mx_to_string(int number, char *str) {
     int i = 0;
     bool is_negative = false;
 
-    if (number == 0) str[i] = '0';
+    if (number == 0)
+        str[i] = '0';
 
     if (number < 0) {
         number = -number;
@@ -13,11 +14,12 @@ static void mx_to_string(int number, char *str) {
     }
 
     for (; number > 0; i++) {
-        str[i] = (char) ((number % 10) + 48);
+        str[i] = (char)((number % 10) + 48);
         number = number / 10;
     }
 
-    if (is_negative) str[i] = '-';
+    if (is_negative)
+        str[i] = '-';
 }
 
 char *mx_itoa(int number) {
@@ -29,7 +31,8 @@ char *mx_itoa(int number) {
         return str;
     }
 
-    if (!(str = mx_strnew(12))) return NULL;
+    if (!(str = mx_strnew(12)))
+        return NULL;
 
     mx_to_string(number, str);
 

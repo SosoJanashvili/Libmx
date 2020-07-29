@@ -4,13 +4,13 @@ static void mx_write_digits(int n) {
     char temp[10];
     int i = 0;
 
-    for ( ; n > 0; i++) {
+    for (; n > 0; i++) {
         temp[i] = (char)((n % 10) + 48);
         n = n / 10;
     }
 
-    for ( ; i > 0; i--) {
-        mx_printchar(temp[i-1]);
+    for (; i > 0; i--) {
+        mx_printchar(temp[i - 1]);
     }
 }
 

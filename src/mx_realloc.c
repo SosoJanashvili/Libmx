@@ -2,7 +2,7 @@
 
 
 //void *mx_realloc(void *ptr, size_t size) {
-//
+
 //    void *p = NULL;
 //    int old_size = malloc_size(ptr);
 //    if (ptr && size == 0) free(ptr);
@@ -11,7 +11,7 @@
 //            return NULL;
 //        return ptr;
 //    }
-//    if (size > old_size) {
+//    if ((int)size > old_size) {
 //        if (!(p = malloc(size)))
 //            return NULL;
 //        return p;
