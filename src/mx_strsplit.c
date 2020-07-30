@@ -1,24 +1,44 @@
 #include "../inc/libmx.h"
 
-char **mx_strsplit(char const *s, char c) {
-    int word_count = mx_count_words(s, c);
-    char **strarr = NULL;
-    char *word = NULL;
-    int count = 0;
+static char *mx_copy(char const *s, char c) {
 
-    if(!s) return NULL;
-    strarr = malloc((word_count + 1) * sizeof(char *)); // +1 for null pointer
-    for (int i = 0; i < mx_strlen(s); i++) {
-        if (s[i] == c) continue;
-        else {
-            word = mx_strnew(30);
-            for (int j = 0; s[i] != c; j++) {
-                word[j] = s[i++];
-            }
-            strarr[count++] = word;
-            word = NULL;
-        }
+    char *word = NULL;
+    int	i = 0;
+
+    while (s[i] && s[i] != c)
+        i++;
+
+    if (!(word = (char *)malloc(sizeof(char) * (i + 1))))
+        return (NULL);
+
+    i = 0;
+    while (s[i] && s[i] != c) {
+        word[i] = s[i];
+        i++;
     }
-    strarr[count] = NULL;
+
+    word[i] = '\0';
+    return word;
+}
+
+char **mx_strsplit(char const *s, char c) {
+    char **strarr = NULL;
+    int word = 0;
+    int i = 0;
+
+    if (!s)
+        return (NULL);
+
+    if (!(strarr = (char **)
+            malloc(sizeof(char *) * (mx_count_words(s, c) + 1))))
+        return (NULL);
+
+    while (s[i]) {
+        if ((i == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c)) {
+            strarr[word++] = mx_copy(s + i, c);
+        }
+        i++;
+    }
+    strarr[word] = NULL;
     return strarr;
 }
