@@ -2,3 +2,5 @@
 main.c
 cmake-build-debug
 main_lists.c
+main_quicksort.c
+some_temp_file

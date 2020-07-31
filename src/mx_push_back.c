@@ -2,14 +2,16 @@
 
 void mx_push_back(t_list **list, void *data) {
 
-    t_list *new = mx_create_node(data);
-    t_list *last_node = NULL;
-    t_list *cur = *list;
+    t_list *node = *list;
 
-    while (cur->next != NULL) {
-        last_node = cur->next;
-        cur = cur->next;
+    if (node == NULL) {
+        *list = mx_create_node(data);
+        return;
     }
 
-    last_node->next = new;
+    while (node->next != NULL) {
+        node = node->next;
+    }
+
+    node->next = mx_create_node(data);
 }

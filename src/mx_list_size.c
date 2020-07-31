@@ -2,14 +2,10 @@
 
 int mx_list_size(t_list *list) {
 
-    int count = 0;
-    t_list *cur = list;
+    int size = 0;
 
-    while (cur->next != NULL) {
-        cur = cur->next;
-        count++;
-    }
-    count++;
+    for (t_list *cur = list; cur != NULL; cur = cur->next)
+        size++;
 
-    return count;
+    return size;
 }

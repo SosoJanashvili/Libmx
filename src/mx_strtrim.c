@@ -14,13 +14,17 @@ static int get_end_index(const char *str) {
 
 char *mx_strtrim(const char *str) {
 
+    int start;
+    int end;
+    int new_str_len;
+    char *trimmed = NULL;
+
     if (!str || !(*str))
         return NULL;
 
-    int start = get_start_index(str);
-    int end = get_end_index(str);
-    int new_str_len = end - start; //  + 1???
-    char *trimmed = NULL;
+    start = get_start_index(str);
+    end = get_end_index(str);
+    new_str_len = end - start;
 
     if (!(trimmed = mx_strnew(new_str_len)))
         return NULL;

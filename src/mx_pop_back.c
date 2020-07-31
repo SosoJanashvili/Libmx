@@ -2,22 +2,21 @@
 
 void mx_pop_back(t_list **head) {
 
-    t_list *temp = NULL;
-    t_list *cur = *head;
+    t_list *node = NULL;
 
-    if (cur->next == NULL) {
-        free(*head);
+    if (!head || !*head)
+        return;
+
+    if ((*head)->next == NULL) {
+        free(head);
         return;
     }
 
-    while (cur->next != NULL) {
-        temp = cur->next;
-        if (temp->next == NULL) {
-            break;
-        }
-        cur = cur->next;
-    }
+    node = *head;
 
-    cur->next = NULL;
-    free(temp);
+    while (node->next->next != NULL)
+        node = node->next;
+
+    free(node->next);
+    node->next = NULL;
 }

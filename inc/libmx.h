@@ -1,7 +1,6 @@
 #ifndef LIBMX_LIBMX_H
 #define LIBMX_LIBMX_H
 
-
 #include <unistd.h>
 #include <wchar.h>
 #include <stdbool.h>
@@ -9,6 +8,7 @@
 //#include <malloc/malloc.h>
 #include <stdio.h>
 #include <string.h>
+#include <fcntl.h>
 
 typedef struct s_list {
     void *data;
@@ -17,11 +17,11 @@ typedef struct s_list {
 
 /*  Utils pack  */
 void mx_printchar(char c);                                                  //100
-//void mx_print_unicode(wchar_t c);
+void mx_print_unicode(wchar_t c);
 void mx_printstr(const char *s);                                            //100
 bool mx_isspace(char c);
 bool mx_isdigit(char c);
-void mx_print_strarr(char **arr, const char *delim);                        //16
+void mx_print_strarr(char **arr, const char *delim);                        //16      edited
 void mx_printint(int n);                                                    //100
 double mx_pow(double n, unsigned int pow);                                  //100
 int mx_sqrt(int x);                                                         //100
@@ -50,17 +50,17 @@ int mx_strcmp(const char *s1, const char *s2);                              //10
 int mx_strncmp(const char *s1, const char *s2, int len);
 char *mx_strcat(char *restrict s1, const char *restrict s2);                    //5 edited
 char *mx_strchr(const char *s, int c);
-char *mx_strstr(const char *haystack, const char *needle);                      //70
+char *mx_strstr(const char *haystack, const char *needle);                      //70 edited???????
 int mx_get_substr_index(const char *str, const char *sub);                      //100
 int mx_count_substr(const char *str, const char *sub);                          //100
-int mx_count_words(const char *str, char c);                                    //85
+int mx_count_words(const char *str, char c);                                    //85  edited
 char *mx_strnew(const int size);                                                //100
-char *mx_strtrim(const char *str);                                              //55
+char *mx_strtrim(const char *str);                                              //55  edited
 char *mx_del_extra_spaces(const char *str);                                     //0
-char **mx_strsplit(char const *s, char c);                                      //25
-char *mx_strjoin(char const *s1, char const *s2);                               //25
-//char *mx_file_to_str(const char *file);
-//int mx_read_line(char **lineptr, int buf_size, char delim, const int fd);
+char **mx_strsplit(char const *s, char c);                                      //25  edited
+char *mx_strjoin(char const *s1, char const *s2);                               //25  edited
+char *mx_file_to_str(const char *file);
+int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd);
 //char *mx_replace_substr(const char *str, const char *sub, const char *replace);
 
 /*  Memory pack  */
@@ -72,16 +72,16 @@ int mx_memcmp(const void *s1, const void *s2, size_t n);                        
 void *mx_memchr(const void *s, int c, size_t n);                                //100
 void *mx_memrchr(const void *s, int c, size_t n);                               //100
 void *mx_memmem(const void *big, size_t big_len, const void *little,
-                size_t little_len);                                             //80
+                size_t little_len);                                             //80  edited??
 void *mx_memmove(void *dst, const void *src, size_t len);                       //100
 void *mx_realloc(void *ptr, size_t size);                                       //70
 
 /*  List Pack  */
 t_list *mx_create_node(void *data);                                     //100
 void mx_push_front(t_list **list, void *data);                          //100
-void mx_push_back(t_list **list, void *data);                           //0
-void mx_pop_front(t_list **head);                                       //0
-void mx_pop_back(t_list **head);                                        //0
+void mx_push_back(t_list **list, void *data);                           //0 edited
+void mx_pop_front(t_list **head);                                       //0 edited
+void mx_pop_back(t_list **head);                                        //0 edited
 int mx_list_size(t_list *list);                                         //0
 //t_list *mx_sort_list(t_list *lst, bool (*cmp)(void *, void *));
 
