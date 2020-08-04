@@ -1,38 +1,25 @@
 #include "../inc/libmx.h"
 
-static char *mx_optimize_string(char *str) {
-
-    if (!str)
-        return NULL;
-
-    for (int i = 0; i < mx_strlen(str); i++) {
-        if (mx_isspace(str[i])) {
-            str[i] = ' ';
-        }
-    }
-
-    return str;
-}
-
 char *mx_del_extra_spaces(const char *str) {
-
-    char *tempstr = NULL;
-    char *clean_str = NULL;
-    char **arr = NULL;
+    char *temp_str = NULL;
+    char *new_str = NULL;
+    int temp_str_len;
+    int j = 0;
 
     if (!str)
         return NULL;
 
-    tempstr = mx_strdup(str);
-    arr = mx_strsplit(mx_optimize_string(tempstr), ' ');
-    clean_str = mx_strdup(arr[0]);
+    temp_str_len = mx_strlen(str);
+    temp_str = mx_strnew(temp_str_len);
 
-    for (int i = 1; arr[i]; i++) {
-        clean_str = mx_strjoin(clean_str, " ");
-        clean_str = mx_strjoin(clean_str, arr[i]);
+    for (int i = 0; str[i]; i++) {
+        if (!mx_isspace(str[i]))
+            temp_str[j++] = str[i];
+        if (!mx_isspace(str[i]) && mx_isspace(str[i + 1]))
+            temp_str[j++] = ' ';
     }
-
-    mx_strdel(&tempstr);
-    mx_del_strarr(&arr);
-    return clean_str;
+    new_str = mx_strtrim(temp_str);
+    free(temp_str);
+    temp_str = NULL;
+    return new_str;
 }
