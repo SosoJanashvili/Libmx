@@ -13,14 +13,16 @@ static int get_end_index(const char *str) {
 }
 
 char *mx_strtrim(const char *str) {
-
     int start;
     int end;
     int new_str_len;
     char *trimmed = NULL;
 
-    if (!str || !(*str))
+    if (!str)
         return NULL;
+
+    if (!*str)
+        return  mx_strnew(sizeof('\0'));
 
     start = get_start_index(str);
     end = get_end_index(str);
@@ -30,6 +32,5 @@ char *mx_strtrim(const char *str) {
         return NULL;
 
     mx_strncpy(trimmed, &str[start], new_str_len);
-
     return trimmed;
 }
