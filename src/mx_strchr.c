@@ -2,11 +2,14 @@
 
 char *mx_strchr(const char *s, int c) {
 
-    int i = 0;
+    int len;
 
-    while (s[i] != c) {
-        i++;
+    len = mx_strlen(s);
+
+    for (int i = 0; i <= len; i++) {
+        if (s[i] == c)
+            return (char *)&s[i];
     }
 
-    return (char *)&s[i];
+    return NULL;
 }
