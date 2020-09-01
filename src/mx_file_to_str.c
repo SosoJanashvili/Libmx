@@ -14,18 +14,17 @@ static int get_str_length(const char *file) {
 }
 
 char *mx_file_to_str(const char *file) {
-
     char *str = NULL;
     int strlen;
-    int fl = open(file, O_RDONLY);
+    int fl = 0;
 
-    if (fl == -1) {
-        close(fl);
-        return NULL;
-    }
     if (!file)
         return NULL;
 
+    fl = open(file, O_RDONLY);
+    if (fl == -1) {
+        return NULL;
+    }
     strlen = get_str_length(file);
     if (!(str = mx_strnew(strlen)))
         return NULL;

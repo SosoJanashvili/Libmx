@@ -2,19 +2,18 @@
 
 char *mx_strstr(const char *haystack, const char *needle) {
 
-    char *pstr1 = NULL;
-
-    if (!haystack)
+    if (!haystack || !needle)
         return NULL;
 
-    if (!needle)
+    if (!mx_strlen(needle))
         return (char *)haystack;
 
-    for (int i = 0; i < mx_strlen(haystack); i++) {
-        if (mx_strncmp(haystack + i, needle, mx_strlen(needle)) == 0) {
-            pstr1 = (char *)haystack + i;
-            return pstr1;
-        }
+    while (*haystack) {
+
+        if (mx_strncmp(haystack, needle, mx_strlen(needle)) == 0)
+            return (char *)haystack;
+
+        haystack++;
     }
 
     return NULL;

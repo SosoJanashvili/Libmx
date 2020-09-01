@@ -5,16 +5,18 @@ void *mx_memmem(const void *big, size_t big_len, const void *little, size_t litt
     const unsigned char *haystack = NULL;
     const unsigned char *needle = NULL;
 
-    if (!big || !little)
+    if (!big || !little || big_len == 0 || little_len == 0 || big_len < little_len)
         return NULL;
 
-    haystack = big;
-    needle = little;
+    haystack = (unsigned char *)big;
+    needle = (unsigned char *)little;
 
-    for (size_t i = 0; i < big_len - little_len; i++) {
-        if (mx_memcmp(haystack + i, needle, little_len) == 0) {
-            return (void *)&haystack[i];
-        }
+    while (*haystack) {
+
+        if (mx_memcmp(haystack, needle, little_len) == 0)
+            return (void *)haystack;
+
+        haystack++;
     }
 
     return NULL;

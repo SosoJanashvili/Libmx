@@ -12,6 +12,7 @@ add_executable(Libmx
         src/mx_printstr.c
         src/mx_isspace.c
         src/mx_isdigit.c
+        src/mx_isalpha.c
         src/mx_print_strarr.c
         src/mx_printint.c
         src/mx_pow.c
@@ -26,6 +27,7 @@ add_executable(Libmx
         src/mx_strtrim.c
         src/mx_atoi.c
         src/mx_quicksort.c
+        src/mx_printerror.c
 
         src/mx_strlen.c
         src/mx_swap_char.c
@@ -51,6 +53,7 @@ add_executable(Libmx
         src/mx_del_extra_spaces.c
         src/mx_file_to_str.c
         src/mx_read_line.c
+        src/mx_strsub.c
 
         src/mx_memset.c
         src/mx_memcpy.c
@@ -69,4 +72,4 @@ add_executable(Libmx
         src/mx_pop_back.c
         src/mx_list_size.c
 
-        main_lists.c)
+        main.c)
