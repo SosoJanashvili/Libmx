@@ -62,7 +62,7 @@ char **mx_strsplit(char const *s, char c);                                      
 char *mx_strjoin(char const *s1, char const *s2);                               //100
 char *mx_file_to_str(const char *file);                                         //60
 int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd);
-//char *mx_replace_substr(const char *str, const char *sub, const char *replace);
+char *mx_replace_substr(const char *str, const char *sub, const char *replace);
 char *mx_strsub(char const *s, unsigned int start, size_t len);
 void mx_printerror(const char *s);
 

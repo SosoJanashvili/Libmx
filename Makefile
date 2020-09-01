@@ -51,6 +51,7 @@ SRC =         src/mx_printchar.c \
               src/mx_del_extra_spaces.c \
               src/mx_file_to_str.c \
               src/mx_read_line.c \
+              src/mx_replace_substr.c \
               src/mx_strsub.c \
               src/mx_memset.c \
               src/mx_memcpy.c \
