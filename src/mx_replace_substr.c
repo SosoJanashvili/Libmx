@@ -4,10 +4,9 @@
 
 #include "../inc/libmx.h"
 
-char *mx_do_replace(const char *str, const char *sub, const char *replace, int i);
+static char *mx_do_replace(const char *str, const char *sub, const char *replace, int i);
 
 char *mx_replace_substr(const char *str, const char *sub, const char *replace) {
-
     int i = 0;
     char *result = NULL;
     char *temp = NULL;
@@ -17,18 +16,19 @@ char *mx_replace_substr(const char *str, const char *sub, const char *replace) {
 
     result = mx_strdup(str);
 
-    while (str[i++]) {
+    while (str[i]) {
         if (mx_strncmp(&result[i], sub, mx_strlen(sub)) == 0) {
             temp = mx_do_replace(result, sub, replace, i);
+            free(result);
             result = mx_strdup(temp);
             free(temp);
         }
+        i++;
     }
-
     return result;
 }
 
-char *mx_do_replace(const char *str, const char *sub, const char *replace, int i) {
+static char *mx_do_replace(const char *str, const char *sub, const char *replace, int i) {
 
     char *beg = NULL;
     char *end = NULL;
