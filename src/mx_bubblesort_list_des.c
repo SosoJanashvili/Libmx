@@ -6,7 +6,7 @@
 
 static void swap(t_list *a, t_list *b);
 
-void mx_sort_list_bubble(t_list *head) {
+void mx_bubblesort_list_des(t_list *head) {
 
     int swapped = 1;
     t_list *ptr1 = NULL;
@@ -22,7 +22,7 @@ void mx_sort_list_bubble(t_list *head) {
 
         while (ptr1->next != lptr) {
 
-            if (*(int *)ptr1->data > *(int *)ptr1->next->data) {
+            if (mx_strcmp((char *)ptr1->data, (char *)ptr1->next->data) < 0) {
                 swap(ptr1, ptr1->next);
                 swapped = 1;
             }
