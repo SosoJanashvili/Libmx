@@ -87,6 +87,7 @@ void mx_pop_front(t_list **head);                                       //60
 void mx_pop_back(t_list **head);                                        //60
 int mx_list_size(t_list *list);
 //t_list *mx_sort_list(t_list *lst, bool (*cmp)(void *, void *));
-void mx_sort_list_bubble(t_list *head);
+void mx_bubblesort_list_asc(t_list *head);
+void mx_bubblesort_list_des(t_list *head);
 
 #endif //LIBMX_LIBMX_H

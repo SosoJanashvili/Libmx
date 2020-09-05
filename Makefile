@@ -68,6 +68,8 @@ SRC =         src/mx_printchar.c \
               src/mx_pop_front.c \
               src/mx_pop_back.c \
               src/mx_list_size.c \
+              src/mx_bubblesort_list_asc \
+              src/mx_bubblesort_list_des \
 
 
 INCLUDE = -I $(INCD) \
