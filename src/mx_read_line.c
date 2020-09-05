@@ -1,36 +1,7 @@
 #include "../inc/libmx.h"
 
-static int append_line(char **lineptr, char delim, const int fd, char **s) {
-    int len = 0;
-    char *temp = NULL;
-
-    while (s[fd][len] != delim && s[fd][len] != '\0')
-        len++;
-
-    if (s[fd][len] == '\n') {
-        *lineptr = mx_strsub(s[fd], 0, len);
-        temp = mx_strdup(&s[fd][len + 1]);
-        mx_strdel(&s[fd]);
-        s[fd] = temp;
-        if (s[fd][0] == '\0')
-            mx_strdel(&s[fd]);
-    } else {
-        *lineptr = strdup(s[fd]);
-        mx_strdel(&s[fd]);
-    }
-    return len;
-}
-
-static int output(char **lineptr, int ret_v, char delim, const int fd, char **s) {
-
-    if (ret_v == -1 && s[fd] == NULL)            // Checks if fd is valid;
-        return -2;
-
-    if (s[fd] == NULL)           // If there's nothing to write to lineptr
-        return -1;
-
-    return append_line(lineptr, delim, fd, s);
-}
+static int append_line(char **lineptr, char delim, const int fd, char **s);
+static int output(char **lineptr, int ret_v, char delim, const int fd, char **s);
 
 int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd) {
     int ret_v;
@@ -54,4 +25,36 @@ int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd) {
     }
     free(buff);
     return output(lineptr, ret_v, delim, fd, s);
+}
+
+static int append_line(char **lineptr, char delim, const int fd, char **s) {
+    int len = 0;
+    char *temp = NULL;
+
+    while (s[fd][len] != delim && s[fd][len] != '\0')
+        len++;
+
+    if (s[fd][len] == '\n') {
+        *lineptr = mx_strsub(s[fd], 0, len);
+        temp = mx_strdup(&s[fd][len + 1]);
+        mx_strdel(&s[fd]);
+        s[fd] = temp;
+        if (s[fd][0] == '\0')
+            mx_strdel(&s[fd]);
+    } else {
+        *lineptr = mx_strdup(s[fd]);
+        mx_strdel(&s[fd]);
+    }
+    return len;
+}
+
+static int output(char **lineptr, int ret_v, char delim, const int fd, char **s) {
+
+    if (ret_v == -1 && s[fd] == NULL)            // Checks if fd is valid;
+        return -2;
+
+    if (s[fd] == NULL)           // If there's nothing to write to lineptr
+        return -1;
+
+    return append_line(lineptr, delim, fd, s);
 }

@@ -1,19 +1,23 @@
 #include "../inc/libmx.h"
 
-static int swap_counter = 0;
-static void printarray(char **arr) {
-    for (int i = 0; i < 6; i++) {
-        mx_printstr(arr[i]);
-        mx_printstr("_");
-    }
-    mx_printstr("\n");
-}
+static void mx_swaparr_elements(char **s1, char **s2, int *counter);
+static int partition(char **arr, int left, int right, int *counter);
 
-static void mx_swaparr_elements(char **s1, char **s2, int *counter) {
-    char* temp = *s1;
-    *s1 = *s2;
-    *s2 = temp;
-    (*counter)++;
+int mx_quicksort(char **arr, int left, int right) {
+
+    static int swap_counter = 0;
+
+    if (!(*arr))
+        return -1;
+
+    if (left < right) {
+        int loc = partition(arr, left, right, &swap_counter);
+
+        mx_quicksort(arr, left, loc - 1);
+        mx_quicksort(arr, loc + 1, right);
+    }
+
+    return swap_counter;
 }
 
 static int partition(char **arr, int left, int right, int *counter) {
@@ -38,17 +42,9 @@ static int partition(char **arr, int left, int right, int *counter) {
     return end;
 }
 
-int mx_quicksort(char **arr, int left, int right) {
-
-    if (!(*arr))
-        return -1;
-
-    if (left < right) {
-        int loc = partition(arr, left, right, &swap_counter);
-
-        mx_quicksort(arr, left, loc - 1);
-        mx_quicksort(arr, loc + 1, right);
-    }
-
-    return swap_counter;
+static void mx_swaparr_elements(char **s1, char **s2, int *counter) {
+    char* temp = *s1;
+    *s1 = *s2;
+    *s2 = temp;
+    (*counter)++;
 }
